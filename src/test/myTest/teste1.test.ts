@@ -3,7 +3,7 @@ import { nextNumber, ObjInfos } from "../../app/myTest/teste1"
 
 describe('MyTest suit test', () => {
 
-    fit('Should return valid Argument', () => {
+    it('Should return valid Argument', () => {
         const actual = nextNumber({
             number: 5,
             around: {
@@ -16,10 +16,27 @@ describe('MyTest suit test', () => {
         expect(actual).toBe('5')
     })
 
-    // fit('Should return Invalid Argument', () => {
-    //     const actual = nextNumber(arg as ObjInfos, (arg: string) => {
-    //         return arg
-    //     })
-    //     expect(actual).toBe('Invalid argument')
-    // })
+    
+    it('Should return Invalid Argument', () => {
+        const input = null;
+        const actual = nextNumber(input as unknown as ObjInfos, () => {})
+        expect(actual).toBeUndefined
+    })
+
+    describe('MyTest with mock test suit', () => {
+
+        const callBackMock = jest.fn();
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+        })
+
+        it('Should return Invalid Argument', () => {
+            const input = null;
+            const actual = nextNumber(input as unknown as ObjInfos, callBackMock)
+            expect(actual).toBeUndefined()
+            expect(callBackMock).toHaveBeenCalledTimes(1)
+            expect(callBackMock).toHaveBeenCalledWith('Invalid argument')
+        })
+    })
 })

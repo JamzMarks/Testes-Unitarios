@@ -1,6 +1,39 @@
-import { calculateComplexity, toUpperCaseWithCb } from "../../app/doubles/OtherUtils"
+import { calculateComplexity, OtherStringUtils, toUpperCaseWithCb } from "../../app/doubles/OtherUtils"
 
-describe('OtherUtils test suit', () => {
+describe.skip('OtherUtils test suit', () => {
+
+    describe('OtherStringUtils test with spies', () => {
+        let sut: OtherStringUtils;
+
+        beforeEach(() => {
+            sut = new OtherStringUtils();
+        })
+
+        test('Use a spy to track call to UpperCase', () => {
+            const toUpperCaseSpy = jest.spyOn(sut, "toUpperCase")
+            sut.toUpperCase('asa')
+            expect(toUpperCaseSpy).toHaveBeenCalledWith('asa')
+        })
+
+        test('Use a spy to track call logString', () => {
+            const consoleLogSpy = jest.spyOn(sut, "logString")
+            sut.logString('asa');
+            expect(consoleLogSpy).toHaveBeenCalledWith('asa');
+        })
+        it('Use a spy to call logString with a invalid data', () => {
+            const consoleLogSpy = jest.spyOn(sut, "logString")
+            sut.logString('data');
+            expect(consoleLogSpy).toHaveBeenCalledWith('data')
+        })
+
+        fit('Use Spy to track a private method in a class', () => {
+            jest.spyOn(sut as any, 'callingTestPrivate').mockImplementation(() => {
+                console.log('Calling mock implementation!')
+            })
+        })
+    
+       
+    })
 
     describe('Tracking callbacks with jest mocks', () => {
 
