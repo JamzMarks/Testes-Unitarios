@@ -1,4 +1,5 @@
-import { nextNumber, ObjInfos } from "../../app/myTest/teste1"
+import { nextNumber, ObjInfos } from "../../../app/pass_checker/myTest/teste1"
+
 
 
 describe('MyTest suit test', () => {
