@@ -1,6 +1,6 @@
-import { calculateComplexity, OtherStringUtils, toUpperCaseWithCb } from "../../app/doubles/OtherUtils"
+import { calculateComplexity, OtherStringUtils, toUpperCaseWithCb } from "../../../app/pass_checker/doubles/OtherUtils"
 
-describe.skip('OtherUtils test suit', () => {
+describe('OtherUtils test suit', () => {
 
     describe('OtherStringUtils test with spies', () => {
         let sut: OtherStringUtils;
@@ -26,7 +26,7 @@ describe.skip('OtherUtils test suit', () => {
             expect(consoleLogSpy).toHaveBeenCalledWith('data')
         })
 
-        fit('Use Spy to track a private method in a class', () => {
+        it('Use Spy to track a private method in a class', () => {
             jest.spyOn(sut as any, 'callingTestPrivate').mockImplementation(() => {
                 console.log('Calling mock implementation!')
             })
