@@ -5,8 +5,6 @@ import { HTTP_CODES, HTTP_METHODS } from "../model/ServerModel.ts";
 import { getRequestBody } from "../utils/Utils.ts";
 
 
-
-
 export class LoginHandler {
 
     private request: IncomingMessage;

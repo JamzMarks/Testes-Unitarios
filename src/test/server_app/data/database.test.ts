@@ -72,7 +72,6 @@ describe('Database test suit', () => {
         await sut.insert(someObject2);
         const expected = [someObject, someObject2]
         
-
         const actual = await sut.getAllElements();
         expect(actual).toEqual(expected);
     })

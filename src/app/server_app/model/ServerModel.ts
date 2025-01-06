@@ -13,4 +13,4 @@ export enum HTTP_METHODS {
     PUT = 'PUT',
     DELETE = 'DELETE',
     OPTIONS = 'OPTIONS'
-}
+} 
