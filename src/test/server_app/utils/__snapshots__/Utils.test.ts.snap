@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Utils test suit should throw error for invalid JSON 1`] = `"Unexpected token 'a', "a{"name":""... is not valid JSON"`;
+
+exports[`Utils test suit should throw error for unexpected error 1`] = `"Something went wrong"`;

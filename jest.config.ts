@@ -1,7 +1,7 @@
 import {Config} from '@jest/types'
 
 const baseDir = '<rootDir>/src/app/server_app'
-const baseTestDir = '<rootDir>/src/test/server_app'
+const baseTestDir = '<rootDir>/src/test/server_app3'
 // const baseDir = '<rootDir>/src/app/myTest'
 // const baseTestDir = '<rootDir>/src/test/myTest'
 
@@ -19,8 +19,11 @@ const config: Config.InitialOptions = {
       `${baseDir}/**/*.ts`
     ],
     testMatch: [
-      `${baseTestDir}/**/*.ts`
+      `${baseTestDir}/**/*test.ts`
     ], // Localiza testes apenas em `src/test`
+    setupFiles: [
+      '<rootDir>/src/test/config.ts'
+    ]
     
   };
 
